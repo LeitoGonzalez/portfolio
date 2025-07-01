@@ -55,7 +55,7 @@ export default function Portfolio() {
             >
                 {/* Navbar */}
                 <nav className="w-full flex justify-center sticky top-0 z-20 backdrop-blur-md bg-[#0F0E0E]/80">
-                    <ul className="flex flex-row gap-2 sm:gap-4 md:gap-8 px-2 sm:px-8 items-center">                        <li>
+                    <ul className="flex flex-row gap-4 sm:gap-4 md:gap-8 px-2 sm:px-8 items-center">                        <li>
                         <button
                             onClick={() => setSection("hola")}
                             className={`text-white text-xl hover:text-[#1F7D53] transition ${section === "hola" ? "font-bold underline" : ""}`}
@@ -120,7 +120,7 @@ export default function Portfolio() {
                                 {/* Proyectos Personales */}
                                 <motion.h2 className="text-4xl mb-8" variants={item}>Proyectos Personales</motion.h2>
                                 <motion.div
-                                    className="relative px-2 sm:px-8 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))] justify-items-center"
+                                    className="relative px-2 sm:px-8 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))] justify-items-center items-stretch"
                                     variants={container}
                                 >
                                     {/* Proyecto 1 */}
@@ -161,12 +161,12 @@ export default function Portfolio() {
                                 {/* Sección Trabajo */}
                                 <motion.h2 className="text-4xl mt-12 mb-8" variants={item}>Trabajo</motion.h2>
                                 <motion.div
-                                    className="relative px-2 sm:px-8 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))] justify-items-center"
+                                    className="relative px-2 sm:px-8 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))] justify-items-center items-stretch"
                                     variants={container}
                                 >
                                     {/* Tarjeta 1 */}
                                     <motion.div
-                                        className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all w-full break-words"
+                                        className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all"
                                         variants={item}
                                     >
                                         <h3 className="text-xl font-semibold text-white">Profesor</h3>
@@ -181,7 +181,7 @@ export default function Portfolio() {
 
                                     {/* Tarjeta 2 */}
                                     <motion.div
-                                        className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all w-full break-words"
+                                        className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all"
                                         variants={item}
                                     >
                                         <h3 className="text-xl font-semibold text-white">Técnico en reparaciones</h3>

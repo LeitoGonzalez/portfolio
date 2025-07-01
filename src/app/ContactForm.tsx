@@ -1,5 +1,17 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.25 } }
+};
+
+const item = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.6 } },
+  exit: { opacity: 0, transition: { duration: 0.3 } }
+};
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -38,8 +50,15 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto text-white font-mono">
-      <label className="flex flex-col">
+    <motion.form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-4 max-w-md mx-auto text-white font-mono"
+      variants={container}
+      initial="hidden"
+      animate="show"
+      exit="hidden"
+    >
+      <motion.label className="flex flex-col" variants={item}>
         Nombre
         <input
           type="text"
@@ -48,8 +67,8 @@ export default function ContactForm() {
           className="mt-1 p-2 rounded bg-[#181818] border border-white/20 text-white"
           disabled={status === "sending"}
         />
-      </label>
-      <label className="flex flex-col">
+      </motion.label>
+      <motion.label className="flex flex-col" variants={item}>
         Email
         <input
           type="email"
@@ -58,8 +77,8 @@ export default function ContactForm() {
           className="mt-1 p-2 rounded bg-[#181818] border border-white/20 text-white"
           disabled={status === "sending"}
         />
-      </label>
-      <label className="flex flex-col">
+      </motion.label>
+      <motion.label className="flex flex-col" variants={item}>
         Mensaje
         <textarea
           name="message"
@@ -68,17 +87,28 @@ export default function ContactForm() {
           className="mt-1 p-2 rounded bg-[#181818] border border-white/20 text-white resize-none"
           disabled={status === "sending"}
         />
-      </label>
-      <button
+      </motion.label>
+      <motion.button
         type="submit"
         disabled={status === "sending"}
-        className="mt-2 px-4 py-2 rounded bg-[#1F7D53] text-white font-bold hover:bg-[#16613f] transition disabled:opacity-50"
+        className="px-4 py-2 rounded bg-[#1F7D53] text-white font-bold hover:bg-[#16613f] transition disabled:opacity-50"
+        variants={item}
       >
         {status === "sending" ? "Enviando..." : "Enviar"}
-      </button>
+      </motion.button>
 
-      {status === "success" && <p className="mt-2 text-green-500">¡Mensaje enviado con éxito! Gracias por contactarme.</p>}
-      {status === "error" && <p className="mt-2 text-red-500">Error: {errorMsg}</p>}
-    </form>
+      <motion.div className="min-h-[32px]" variants={item}>
+        {status === "success" && (
+          <p className="mt-2 text-green-500">
+            ¡Mensaje enviado con éxito! Gracias por contactarme.
+          </p>
+        )}
+        {status === "error" && (
+          <p className="mt-2 text-red-500">
+            Error: {errorMsg}
+          </p>
+        )}
+      </motion.div>
+    </motion.form>
   );
 }
