@@ -134,6 +134,9 @@ export default function Portfolio() {
                                             <li>Desarrollado con Next.js, Tailwind y Framer Motion.</li>
                                             <li>Diseño responsive y animaciones suaves.</li>
                                             <li>Secciones dinámicas con contenido animado y transiciones.</li>
+                                            <li>
+                                                <a href="https://github.com/LeitoGonzalez/portfolio" target="_blank" className="underline hover:text-[#1F7D53]">Repositorio</a>
+                                            </li>
                                         </ul>
                                     </motion.div>
                                     {/* Proyecto 2 */}
