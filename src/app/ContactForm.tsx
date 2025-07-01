@@ -31,7 +31,7 @@ export default function ContactForm() {
         setStatus("error");
         setErrorMsg(data.error || "Error al enviar el mensaje.");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
       setErrorMsg("Error de conexión, intenta más tarde.");
     }
