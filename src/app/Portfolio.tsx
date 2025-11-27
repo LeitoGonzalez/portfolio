@@ -117,7 +117,7 @@ export default function Portfolio() {
                                     className="flex justify-center gap-2"
                                 >
                                     <a
-                                        href="https://www.instagram.com/leitogonzalez06/"
+                                        href="https://www.instagram.com/leo__gnzz/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="p-2 rounded-lg flex items-center border-gray-300 justify-center transition-all duration-500 group"
