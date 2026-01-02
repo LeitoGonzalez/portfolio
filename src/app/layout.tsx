@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Martian_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -35,3 +35,11 @@ export default function RootLayout({
     </html>
   );
 }
+
+const martian = Martian_Mono({
+  subsets: ['latin'],
+  weight: ['100','200','300','400','500','600','700','800'],
+  variable: '--font-martian',
+  display: 'swap',
+});
+
