@@ -126,3 +126,50 @@ body {
   scrollbar-width: none;
   /* Firefox */
 }
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Navegación */
+.btn-gray {
+  background-color: #e5e7eb; /* gris suave */
+  color: #1f2937;
+}
+.btn-gray:hover {
+  background-color: #d1d5db;
+  transform: scale(1.05);
+}
+
+/* Agregar */
+.btn-blue {
+  background-color: #bfdbfe; /* azul suave */
+  color: #1f2937;
+}
+.btn-blue:hover {
+  background-color: #93c5fd;
+  transform: scale(1.05);
+}
+
+/* Eliminar */
+.btn-red {
+  background-color: #ffacac; /* rojo suave */
+  color: #1f2937;
+}
+.btn-red:hover {
+  background-color: #ffacac;
+  transform: scale(1.05);
+}
+
+/* Guardar */
+.btn-green {
+  background-color: #bbf7d0; /* verde suave */
+  color: #1f2937;
+  font-weight: bold;
+}
+.btn-green:hover {
+  background-color: #86efac;
+  transform: scale(1.05);
+}
