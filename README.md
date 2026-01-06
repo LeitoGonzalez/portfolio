@@ -1,21 +1,26 @@
-## Este portfolio está desarrollado con:
+# Portfolio Web
 
-- **Next.js**: Framework React para apps modernas y rápidas.
-- **Tailwind CSS**: Estilos utilitarios para un diseño limpio y responsive.
-- **Framer Motion**: Animaciones suaves y elegantes.
+Portfolio personal desarrollado en **Next.js**, con diseño moderno y animaciones fluidas.  
+El proyecto muestra mis trabajos, proyectos académicos y personales, integrando secciones dinámicas y contenido administrable.
 
-### Funcionalidades
+## Funcionalidades
+- Diseño responsive adaptado a distintos dispositivos.
+- Animaciones suaves con **Framer Motion**.
+- Secciones dinámicas para proyectos, experiencia y contacto.
+- Panel de administración para gestionar contenido.
+- Autenticación y login para edición segura.
 
-- Navegación dinámica con animaciones.
-- Secciones de presentación personal, experiencia laboral y proyectos.
-- Formulario de contacto integrado con [Formspree](https://formspree.io/) para enviar mensajes directo desde la web.
-- Diseño adaptado a diferentes dispositivos.
+## Tecnologías utilizadas
+- **Next.js** (App Router)
+- **Tailwind CSS** (estilos y responsive design)
+- **Framer Motion** (animaciones)
+- **TypeScript** (tipado estático)
+- **Firebase** (persistencia de datos y hosting alternativo)
+- **Vercel** (deploy principal)
 
----
-
-## 🚀 Cómo ejecutar localmente
-
-1. Clonar el repositorio:
-
-   ```bash
-   git clone https://github.com/LeitoGonzalez/portfolio.git
+## Instalación
+```bash
+git clone https://github.com/LeitoGonzalez/portfolio.git
+cd portfolio
+npm install
+npm run dev
