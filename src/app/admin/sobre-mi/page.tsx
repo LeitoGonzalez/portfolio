@@ -36,32 +36,54 @@ export default function EditSobreMiPage() {
       {/* Botones de navegación */}
       <div className="flex gap-4 mb-6">
         <Link href="/admin">
-          <button className="px-4 py-2 bg-gray-600 rounded text-white hover:bg-gray-700">
-            Volver al menú principal
-          </button>
+          <button className="btn btn-gray">Volver al menú principal</button>
         </Link>
       </div>
 
       {/* Editar párrafos */}
       <h2 className="text-xl mb-2">Párrafos</h2>
       {data.paragraphs.map((p, i) => (
-        <textarea
-          key={i}
-          value={p}
-          onChange={(e) =>
-            setData({
-              ...data,
-              paragraphs: data.paragraphs.map((para, idx) =>
-                idx === i ? e.target.value : para
-              ),
-            })
-          }
-          className="w-full h-24 mb-4 p-2 rounded bg-white/10 text-white"
-        />
+        <div key={i} className="flex items-start gap-2 mb-4">
+          <textarea
+            value={p}
+            onChange={(e) =>
+              setData({
+                ...data,
+                paragraphs: data.paragraphs.map((para, idx) =>
+                  idx === i ? e.target.value : para
+                ),
+              })
+            }
+            className="w-full h-24 p-2 rounded bg-white/10 text-white"
+          />
+          <button
+            onClick={() =>
+              setData({
+                ...data,
+                paragraphs: data.paragraphs.filter((_, idx) => idx !== i),
+              })
+            }
+            className="btn btn-red"
+          >
+            🗑️
+          </button>
+        </div>
       ))}
 
+      <button
+        onClick={() =>
+          setData({
+            ...data,
+            paragraphs: [...data.paragraphs, ""],
+          })
+        }
+        className="btn btn-blue"
+      >
+        Agregar párrafo
+      </button>
+
       {/* Editar redes */}
-      <h2 className="text-xl mb-2">Redes</h2>
+      <h2 className="text-xl mt-6 mb-2">Redes</h2>
       <input
         type="text"
         placeholder="Instagram"
@@ -92,7 +114,7 @@ export default function EditSobreMiPage() {
 
       <button
         onClick={handleSave}
-        className="mt-4 px-6 py-2 bg-[#1F7D53] rounded text-white font-bold"
+        className="btn btn-green mt-4"
       >
         Guardar cambios
       </button>
