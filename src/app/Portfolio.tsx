@@ -40,7 +40,7 @@ export default function Portfolio({ trabajo, sobreMi }: Props) {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen min-w-screen font-[var(--font-martian)] bg-[#0F0E0E] relative overflow-hidden">
+    <div className="flex items-center justify-center min-h-[100dvh] min-w-screen font-[var(--font-martian)] bg-[#0F0E0E] relative overflow-hidden">
       {!trabajo || !sobreMi ? (
         <div className="flex items-center justify-center min-h-screen text-white">
           Cargando...
@@ -59,7 +59,7 @@ export default function Portfolio({ trabajo, sobreMi }: Props) {
           )}
 
           <div
-            className={`w-[96vw] h-[92vh] border border-current pt-2 px-15 flex flex-col gap-2 transition-opacity duration-1000 ease-in-out relative overflow-hidden
+            className={`w-[96vw] h-[92dvh] border border-current pt-2 px-15 flex flex-col gap-2 transition-opacity duration-1000 ease-in-out relative overflow-hidden
               ${section === "hola" && animando ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"}`}
           >
             {/* Navbar */}
