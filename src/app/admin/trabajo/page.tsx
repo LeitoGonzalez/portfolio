@@ -44,6 +44,8 @@ export default function EditTrabajoPage() {
       <h2 className="text-xl mb-2">Experiencias</h2>
       {data.experiencia.map((exp, i) => (
         <div key={i} className="mb-6 border p-4 rounded">
+
+          {/* Titulo */}
           <input
             type="text"
             placeholder="Título"
@@ -58,6 +60,8 @@ export default function EditTrabajoPage() {
             }
             className="w-full mb-2 p-2 rounded bg-white/10 text-white"
           />
+
+          {/* Subtitulo */}
           <input
             type="text"
             placeholder="Subtítulo"
@@ -72,6 +76,47 @@ export default function EditTrabajoPage() {
             }
             className="w-full mb-2 p-2 rounded bg-white/10 text-white"
           />
+
+          {/* Fechas */}
+          <div className="flex gap-4 mb-4">
+            <div className="flex flex-col">
+              <label className="text-sm text-white/60">Fecha inicio</label>
+              <input
+                type="date"
+                value={exp.fechaInicio ?? ""}
+                onChange={(e) =>
+                  setData({
+                    ...data,
+                    experiencia: data.experiencia.map((ex, idx) =>
+                      idx === i
+                        ? { ...ex, fechaInicio: e.target.value }
+                        : ex
+                    ),
+                  })
+                }
+                className="p-2 rounded bg-white/10 text-white"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label className="text-sm text-white/60">Fecha fin</label>
+              <input
+                type="date"
+                value={exp.fechaFin ?? ""}
+                onChange={(e) =>
+                  setData({
+                    ...data,
+                    experiencia: data.experiencia.map((ex, idx) =>
+                      idx === i
+                        ? { ...ex, fechaFin: e.target.value }
+                        : ex
+                    ),
+                  })
+                }
+                className="p-2 rounded bg-white/10 text-white"
+              />
+            </div>
+          </div>
 
           {/* Descripciones de experiencia */}
           <h3 className="text-lg mb-2">Descripciones</h3>
@@ -169,6 +214,8 @@ export default function EditTrabajoPage() {
       <h2 className="text-xl mt-8 mb-2">Proyectos</h2>
       {data.proyectos.map((proj, i) => (
         <div key={i} className="mb-6 border p-4 rounded">
+
+          {/* Titulo */}
           <input
             type="text"
             placeholder="Título"
@@ -183,6 +230,8 @@ export default function EditTrabajoPage() {
             }
             className="w-full mb-2 p-2 rounded bg-white/10 text-white"
           />
+
+          {/* Subtitulo */}
           <input
             type="text"
             placeholder="Subtítulo"
@@ -197,6 +246,26 @@ export default function EditTrabajoPage() {
             }
             className="w-full mb-2 p-2 rounded bg-white/10 text-white"
           />
+
+          {/* Fecha */}
+          <div className="flex flex-col mb-4">
+            <label className="text-sm text-white/60">Fecha</label>
+            <input
+              type="date"
+              value={proj.date ?? ""}
+              onChange={(e) =>
+                setData({
+                  ...data,
+                  proyectos: data.proyectos.map((pr, idx) =>
+                    idx === i
+                      ? { ...pr, date: e.target.value }
+                      : pr
+                  ),
+                })
+              }
+              className="p-2 rounded bg-white/10 text-white"
+            />
+          </div>
 
           {/* Descripciones de proyecto */}
           <h3 className="text-lg mb-2">Descripciones</h3>
@@ -261,6 +330,7 @@ export default function EditTrabajoPage() {
             </button>
           </div>
 
+          {/* Repositorio */}
           <h3 className="text-lg mb-2">Repo Links</h3>
           {proj.repoLink.map((link, j) => (
             <div key={j} className="flex items-start gap-2 mb-2">

@@ -15,16 +15,20 @@ export default function TrabajoSection({
     item,
 }: Props) {
 
-    const proyectosOrdenados = [...trabajo.proyectos].sort(
-        (a, b) =>
-            new Date(b.date).getTime() -
-            new Date(a.date).getTime()
+    const proyectosOrdenados = [...(trabajo.proyectos ?? [])].sort(
+        (a, b) => {
+            const fechaA = a.date ? new Date(a.date).getTime() : -Infinity;
+            const fechaB = b.date ? new Date(b.date).getTime() : -Infinity;
+            return fechaB - fechaA;
+        }
     );
 
-    const experienciaOrdenada = [...trabajo.experiencia].sort(
-        (a, b) =>
-            new Date(b.fechaInicio).getTime() -
-            new Date(a.fechaInicio).getTime()
+    const experienciaOrdenada = [...(trabajo.experiencia ?? [])].sort(
+        (a, b) => {
+            const fechaA = a.fechaInicio ? new Date(a.fechaInicio).getTime() : -Infinity;
+            const fechaB = b.fechaInicio ? new Date(b.fechaInicio).getTime() : -Infinity;
+            return fechaB - fechaA;
+        }
     );
 
     return (<motion.div

@@ -1,13 +1,13 @@
 export type Experiencia = {
-  fechaInicio: Date;
-  fechaFin: Date;
+  fechaInicio?: string | null;
+  fechaFin?: string | null;
   titulo: string;
   subtitulo: string;
   descripcion: string[];
 };
 
 export type Proyecto = {
-  date: Date;
+  date?: string | null;
   titulo: string;
   subtitulo: string;
   descripcion: string[];
