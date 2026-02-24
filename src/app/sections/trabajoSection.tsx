@@ -15,16 +15,19 @@ export default function TrabajoSection({
     item,
 }: Props) {
 
+const obtenerTiempo = (fecha: any) => {
+        if (!fecha) return 0;
+        if (typeof fecha.toDate === 'function') return fecha.toDate().getTime();
+        if (fecha.seconds) return fecha.seconds * 1000;
+        return new Date(fecha).getTime();
+    };
+
     const proyectosOrdenados = [...trabajo.proyectos].sort(
-        (a, b) =>
-            new Date(b.date).getTime() -
-            new Date(a.date).getTime()
+        (a, b) => obtenerTiempo(b.date) - obtenerTiempo(a.date)
     );
 
     const experienciaOrdenada = [...trabajo.experiencia].sort(
-        (a, b) =>
-            new Date(b.fechaInicio).getTime() -
-            new Date(a.fechaInicio).getTime()
+        (a, b) => obtenerTiempo(b.fechaInicio) - obtenerTiempo(a.fechaInicio)
     );
 
     return (<motion.div
