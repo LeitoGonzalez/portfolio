@@ -1,14 +1,18 @@
 export type Experiencia = {
+  fechaInicio: Date;
+  fechaFin: Date;
   titulo: string;
   subtitulo: string;
   descripcion: string[];
 };
 
 export type Proyecto = {
+  date: Date;
   titulo: string;
   subtitulo: string;
   descripcion: string[];
   repoLink: string[];
+  images: string[];
 };
 
 export type Trabajo = {

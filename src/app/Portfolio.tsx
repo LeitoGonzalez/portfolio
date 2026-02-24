@@ -59,7 +59,7 @@ export default function Portfolio({ trabajo, sobreMi }: Props) {
           )}
 
           <div
-            className={`w-[96vw] h-[92dvh] border border-current pt-2 px-15 flex flex-col gap-2 transition-opacity duration-1000 ease-in-out relative overflow-hidden
+            className={`w-[96vw] h-[92dvh] border border-current pt-2 px-5 flex flex-col gap-2 transition-opacity duration-1000 ease-in-out relative overflow-hidden
               ${section === "hola" && animando ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"}`}
           >
             {/* Navbar */}

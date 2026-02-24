@@ -15,6 +15,18 @@ export default function TrabajoSection({
     item,
 }: Props) {
 
+    const proyectosOrdenados = [...trabajo.proyectos].sort(
+        (a, b) =>
+            new Date(b.date).getTime() -
+            new Date(a.date).getTime()
+    );
+
+    const experienciaOrdenada = [...trabajo.experiencia].sort(
+        (a, b) =>
+            new Date(b.fechaInicio).getTime() -
+            new Date(a.fechaInicio).getTime()
+    );
+
     return (<motion.div
         key="trabajo"
         initial="hidden"
@@ -36,40 +48,42 @@ export default function TrabajoSection({
             className="relative px-2 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))]"
             variants={container}
         >
-            {trabajo.proyectos.map((proy) => (
-                <motion.div
-                    key={proy.titulo}
-                    className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all min-h-[200px] w-full flex flex-col"
-                    variants={item}
-                >
-                    <h4 className="text-lg font-semibold text-white">
-                        {proy.titulo}
-                    </h4>
+            {proyectosOrdenados.map((proy) => {
+                return (
+                    <motion.div
+                        key={proy.titulo}
+                        className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all min-h-[200px] w-full flex flex-col"
+                        variants={item}
+                    >
+                        <h4 className="text-lg font-semibold text-white">
+                            {proy.titulo}
+                        </h4>
 
-                    <p className="text-sm text-white/60 mb-2">
-                        {proy.subtitulo}
-                    </p>
+                        <p className="text-sm text-white/60 mb-2">
+                            {proy.subtitulo}
+                        </p>
 
-                    <ul className="list-disc ml-5 text-white/80 text-sm space-y-1">
-                        {proy.descripcion.map((d, i) => (
-                            <li key={i}>{d}</li>
-                        ))}
+                        <ul className="list-disc ml-5 text-white/80 text-sm space-y-1">
+                            {proy.descripcion.map((d, i) => (
+                                <li key={i}>{d}</li>
+                            ))}
 
-                        {proy.repoLink && proy.repoLink.map((link, j) => (
-                            <li key={j}>
-                                <a
-                                    href={link}
-                                    target="_blank"
-                                    className="underline hover:text-[#1F7D53]"
-                                >
-                                    Repositorio
-                                </a>
-                            </li>
-                        ))}
+                            {proy.repoLink && proy.repoLink.map((link, j) => (
+                                <li key={j}>
+                                    <a
+                                        href={link}
+                                        target="_blank"
+                                        className="underline hover:text-[#1F7D53]"
+                                    >
+                                        Repositorio
+                                    </a>
+                                </li>
+                            ))}
 
-                    </ul>
-                </motion.div>
-            ))}
+                        </ul>
+                    </motion.div>
+                )
+            })}
         </motion.div>
 
         {/* Sección Trabajo */}
@@ -84,7 +98,7 @@ export default function TrabajoSection({
             className="relative px-2 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))]"
             variants={container}
         >
-            {trabajo.experiencia.map((exp) => (
+            {experienciaOrdenada.map((exp) => (
                 <motion.div
                     key={exp.titulo}
                     className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all min-h-[200px] w-full flex flex-col"

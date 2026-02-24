@@ -8,7 +8,20 @@ export async function getTrabajo(): Promise<Trabajo | null> {
 
   if (!snap.exists()) return null;
 
-  return snap.data() as Trabajo;
+  const data = snap.data();
+
+  return {
+    ...data,
+    proyectos: data.proyectos?.map((p: any) => ({
+      ...p,
+      date: p.date?.toDate().toISOString(),
+    })),
+    experiencia: data.experiencia?.map((e: any) => ({
+      ...e,
+      fechaInicio: e.fechaInicio?.toDate().toISOString(),
+      fechaFin: e.fechaFin?.toDate().toISOString(),
+    })),
+  } as Trabajo;
 }
 
 export async function getSobreMi(): Promise<SobreMi | null> {
