@@ -72,14 +72,15 @@ export default function TrabajoSection({
                                 <li key={i}>{d}</li>
                             ))}
 
-                            {proy.repoLink && proy.repoLink.map((link, j) => (
+                            {proy.repoLink && proy.repoLink.map((linkObj, j) => (
                                 <li key={j}>
                                     <a
-                                        href={link}
+                                        href={linkObj.url}
                                         target="_blank"
+                                        rel="noopener noreferrer"
                                         className="underline hover:text-[#1F7D53]"
                                     >
-                                        Repositorio
+                                        {linkObj.label || "Link"}
                                     </a>
                                 </li>
                             ))}

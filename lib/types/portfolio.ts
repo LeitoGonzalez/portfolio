@@ -11,7 +11,7 @@ export type Proyecto = {
   titulo: string;
   subtitulo: string;
   descripcion: string[];
-  repoLink: string[];
+  repoLink: { label: string; url: string }[]; 
   images: string[];
 };
 

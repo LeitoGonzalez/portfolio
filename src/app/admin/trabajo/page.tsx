@@ -332,12 +332,13 @@ export default function EditTrabajoPage() {
 
           {/* Repositorio */}
           <h3 className="text-lg mb-2">Repo Links</h3>
-          {proj.repoLink.map((link, j) => (
-            <div key={j} className="flex items-start gap-2 mb-2">
+          {proj.repoLink.map((linkObj, j) => (
+            <div key={j} className="flex flex-col md:flex-row items-start gap-2 mb-4 p-2 bg-white/5 rounded">
+              {/* Input para el Nombre (Label) */}
               <input
                 type="text"
-                placeholder={`Link ${j + 1}`}
-                value={link}
+                placeholder="Ej: Demo, Repo Front..."
+                value={linkObj.label || ""}
                 onChange={(e) =>
                   setData({
                     ...data!,
@@ -346,15 +347,39 @@ export default function EditTrabajoPage() {
                         ? {
                           ...pr,
                           repoLink: pr.repoLink.map((l, k) =>
-                            k === j ? e.target.value : l
+                            k === j ? { ...l, label: e.target.value } : l
                           ),
                         }
                         : pr
                     ),
                   })
                 }
-                className="w-full p-2 rounded bg-white/10 text-white"
+                className="w-full md:w-1/3 p-2 rounded bg-white/10 text-white border border-white/20"
               />
+
+              {/* Input para la URL */}
+              <input
+                type="text"
+                placeholder="https://..."
+                value={linkObj.url || ""}
+                onChange={(e) =>
+                  setData({
+                    ...data!,
+                    proyectos: data!.proyectos.map((pr, idx) =>
+                      idx === i
+                        ? {
+                          ...pr,
+                          repoLink: pr.repoLink.map((l, k) =>
+                            k === j ? { ...l, url: e.target.value } : l
+                          ),
+                        }
+                        : pr
+                    ),
+                  })
+                }
+                className="w-full md:w-2/3 p-2 rounded bg-white/10 text-white border border-white/20"
+              />
+
               <button
                 onClick={() =>
                   setData({
@@ -375,16 +400,17 @@ export default function EditTrabajoPage() {
               </button>
             </div>
           ))}
+
           <button
             onClick={() =>
               setData({
                 ...data!,
                 proyectos: data!.proyectos.map((pr, idx) =>
-                  idx === i ? { ...pr, repoLink: [...pr.repoLink, ""] } : pr
+                  idx === i ? { ...pr, repoLink: [...pr.repoLink, { label: "", url: "" }] } : pr
                 ),
               })
             }
-            className="btn btn-blue"
+            className="btn btn-blue mb-4"
           >
             Agregar link
           </button>
@@ -412,7 +438,7 @@ export default function EditTrabajoPage() {
                 titulo: "",
                 subtitulo: "",
                 descripcion: [""],
-                repoLink: [""],
+                repoLink: [{ label: "", url: "" }],
               } as Proyecto,
             ],
           })
