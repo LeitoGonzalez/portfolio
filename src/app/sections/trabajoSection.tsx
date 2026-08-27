@@ -56,8 +56,10 @@ export default function TrabajoSection({
                 return (
                     <motion.div
                         key={proy.titulo}
-                        className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all min-h-[200px] w-full flex flex-col will-change-transform"
+                        className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 min-h-[200px] w-full flex flex-col overflow-hidden"
                         variants={item}
+                        whileHover={{ scale: 1.01 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
                     >
                         <h4 className="text-lg font-semibold text-white">
                             {proy.titulo}
@@ -106,8 +108,10 @@ export default function TrabajoSection({
             {experienciaOrdenada.map((exp) => (
                 <motion.div
                     key={exp.titulo}
-                    className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all min-h-[200px] w-full flex flex-col will-change-transform"
+                    className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 min-h-[200px] w-full flex flex-col overflow-hidden"
                     variants={item}
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
                 >
                     <h3 className="text-xl font-semibold text-white">
                         {exp.titulo}
