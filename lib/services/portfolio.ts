@@ -2,6 +2,23 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { Trabajo, SobreMi } from "../types/portfolio";
 
+type FirestoreProyecto = {
+  date?: string | { toDate?: () => Date } | null;
+  titulo: string;
+  subtitulo: string;
+  descripcion: string[];
+  repoLink: { label: string; url: string }[];
+  images: string[];
+};
+
+type FirestoreExperiencia = {
+  fechaInicio?: string | { toDate?: () => Date } | null;
+  fechaFin?: string | { toDate?: () => Date } | null;
+  titulo: string;
+  subtitulo: string;
+  descripcion: string[];
+};
+
 export async function getTrabajo(): Promise<Trabajo | null> {
   const ref = doc(db, "portfolio", "trabajo");
   const snap = await getDoc(ref);
@@ -10,21 +27,16 @@ export async function getTrabajo(): Promise<Trabajo | null> {
 
   const data = snap.data();
 
-  console.log(
-    typeof data?.proyectos?.[0]?.date,
-    data?.proyectos?.[0]?.date
-  );
-
   return {
     ...data,
-    proyectos: (data.proyectos ?? []).map((p: any) => ({
+    proyectos: (data.proyectos ?? []).map((p: FirestoreProyecto) => ({
       ...p,
       date:
         typeof p.date === "string"
           ? p.date
           : p.date?.toDate?.().toISOString() ?? null,
     })),
-    experiencia: (data.experiencia ?? []).map((e: any) => ({
+    experiencia: (data.experiencia ?? []).map((e: FirestoreExperiencia) => ({
       ...e,
       fechaInicio:
         typeof e.fechaInicio === "string"

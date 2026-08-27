@@ -12,6 +12,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const martian = Martian_Mono({
+  subsets: ['latin'],
+  weight: ['100','200','300','400','500','600','700','800'],
+  variable: '--font-martian',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   title: "Leo's Portfolio",
   description: "Leo's Portfolio",
@@ -28,18 +35,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${martian.variable} antialiased`}
       >
         {children}
       </body>
     </html>
   );
 }
-
-const martian = Martian_Mono({
-  subsets: ['latin'],
-  weight: ['100','200','300','400','500','600','700','800'],
-  variable: '--font-martian',
-  display: 'swap',
-});
 

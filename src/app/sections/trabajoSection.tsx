@@ -49,14 +49,14 @@ export default function TrabajoSection({
         </motion.h2>
 
         <motion.div
-            className="relative px-2 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))]"
+            className="relative px-2 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             variants={container}
         >
             {proyectosOrdenados.map((proy) => {
                 return (
                     <motion.div
                         key={proy.titulo}
-                        className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all min-h-[200px] w-full flex flex-col"
+                        className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all min-h-[200px] w-full flex flex-col will-change-transform"
                         variants={item}
                     >
                         <h4 className="text-lg font-semibold text-white">
@@ -100,13 +100,13 @@ export default function TrabajoSection({
         </motion.h2>
 
         <motion.div
-            className="relative px-2 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))]"
+            className="relative px-2 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             variants={container}
         >
             {experienciaOrdenada.map((exp) => (
                 <motion.div
                     key={exp.titulo}
-                    className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all min-h-[200px] w-full flex flex-col"
+                    className="border border-white/20 rounded-xl p-5 backdrop-blur-md bg-white/5 hover:scale-[1.01] transition-all min-h-[200px] w-full flex flex-col will-change-transform"
                     variants={item}
                 >
                     <h3 className="text-xl font-semibold text-white">

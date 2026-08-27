@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
 :root {
   --color-bg: #101418;
   --color-bg-soft: #18201c;

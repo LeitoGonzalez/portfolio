@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, type Variants } from "framer-motion";
-import "./globals.css";
 import type { Trabajo, SobreMi } from "../../lib/types/portfolio";
 import SobreMiSection from "./sections/sobreMiSection";
 import TrabajoSection from "./sections/trabajoSection";
@@ -104,7 +103,6 @@ export default function Portfolio({ trabajo, sobreMi }: Props) {
                 {section === "hola" && sobreMi && !animando && (
                   <SobreMiSection
                     sobreMi={sobreMi}
-                    animando={animando}
                     container={container}
                     item={item}
                   />
