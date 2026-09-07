@@ -26,7 +26,7 @@ export default function ContactoSection({ container, item }: Props) {
                     variants={item}
                 >
                     <a
-                        href="/cv.pdf"
+                        href="/LeonardoGonzalez_CV"
                         download
                         className="px-6 py-3 rounded bg-[#1F7D53] text-white font-bold hover:bg-[#16613f] transition text-center"
                     >
